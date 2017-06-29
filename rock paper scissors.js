@@ -9,6 +9,8 @@ do {
     var i = 1
 
     // computer chooses based on random number
+    // dp - I think this makes rock more probable of a choice because you're including occurrences of
+    // 1 and 2. I would use the `===` operation in this conditional
     if (computerChoice >= 1 && computerChoice <= 2) {
         computerChoice = "rock";
     } else if(computerChoice > 2 && computerChoice <=3) {
@@ -21,12 +23,14 @@ do {
     // alert("computer chose " + computerChoice + ". And user chose " + userChoice + ".")
 
     // let's compare them now. who wins?
+    // dp - this can be simplified :-) check out the provided example
     if (userChoice==="rock"){
         if (computerChoice === "rock"){
             alert("tie! you both chose rock!");
         } else if(computerChoice === "paper"){
             alert("You LOSE!! computer chose paper. Paper beats rock!");
         } else { // computer chooses scissors
+            // dp - what happens if a user enters unexpected text?
             alert("You WIN! computer chose scissors. Rock beats scissors!");
         }
     }
@@ -58,6 +62,9 @@ do {
     var wantsToPlayAgain = confirm("Would you like to play again?");
     if(wantsToPlayAgain){
         console.log("Ok is true");
+        //dp - because this variable is referenced outside of this conditional, I would declare it inside the loop or just
+        // outside of it - we didn't cover it in the workshop, but scope is something to check out!
+        // http://javascriptissexy.com/javascript-variable-scope-and-hoisting-explained/
         var i = 1;
     }
     else {
